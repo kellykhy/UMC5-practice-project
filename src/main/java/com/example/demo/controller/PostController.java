@@ -32,7 +32,7 @@ public class PostController {
 
 	// 조회
 	@GetMapping("/posts")
-	public PostDto post(@RequestParam("id") Long postId) {
+	public PostDto get(@RequestParam("id") Long postId) {
 		return postService.getPost(postId);
 	}
 

@@ -1,9 +1,6 @@
 package com.example.demo.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Post {
@@ -14,9 +11,14 @@ public class Post {
 	private String text;
 	private String title;
 
-	public Post(String title, String text) {
-		this.title = title;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "member_id")
+	private Member member;
+
+	public Post(String text, String title, Member member) {
 		this.text = text;
+		this.title = title;
+		this.member = member;
 	}
 
 	public Long getId() {
