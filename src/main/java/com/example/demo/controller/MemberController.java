@@ -34,7 +34,7 @@
  // 	그리고 MemberService 에서 MemberRepository로 부터 받은 Member의 정보를 MemberDto로 옮기면 됩니다.
 
  	@GetMapping("/members")
- 	public MemberDto getMemberDto(Long memberId) {
+ 	public MemberDto getMemberDto(@RequestParam("id") Long memberId) {
  		return memberService.getMember(memberId);
  	}
 
